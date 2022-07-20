@@ -22,7 +22,6 @@ export async function getFastmailContacts() {
   const vcards = await client.fetchVCards({
     addressBook: addressBooks[0]
   });
-  console.log(vcards);
   return vcards.map((vcard) => parseVCard(parser.fromString(vcard.data).VCARD));
 }
 
