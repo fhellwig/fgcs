@@ -27,6 +27,7 @@
     "google-auth-library": "^8.1.1",
     "open": "^8.4.0",
     "server-destroy": "^1.0.1",
-    "tsdav": "^2.0.3"
+    "tsdav": "^2.0.3",
+    "vdata-parser": "^0.1.5"
   }
 }
