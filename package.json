@@ -1,0 +1,32 @@
+{
+  "name": "fgcs",
+  "version": "1.0.0",
+  "description": "Fastmail to Google contacts sync",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fhellwig/fgcs.git"
+  },
+  "keywords": [
+    "Fastmail",
+    "Google",
+    "CardDAV"
+  ],
+  "author": "Frank Hellwig <frank@hellwig.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fhellwig/fgcs/issues"
+  },
+  "homepage": "https://github.com/fhellwig/fgcs#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "google-auth-library": "^8.1.1",
+    "open": "^8.4.0",
+    "server-destroy": "^1.0.1",
+    "tsdav": "^2.0.3"
+  }
+}
