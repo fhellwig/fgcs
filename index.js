@@ -14,14 +14,13 @@ async function main() {
   const client = await getAuthenticatedClient();
   await deleteAllGoogleContacts(client);
   const converted = convertToGoogleContacts(people);
-  const chunks = chunkArray(converted, 10);
+  const chunks = chunkArray(converted, 200);
   for (const chunk of chunks) {
     await createGoogleContacts(client, chunk);
   }
 }
 
 function chunkArray(a, size) {
-  console.log('orig size', a.length);
   var arrays = [];
   for (let i = 0; i < a.length; i += size) {
     arrays.push(a.slice(i, i + size));
