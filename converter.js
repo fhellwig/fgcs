@@ -9,7 +9,7 @@ function isValid(person) {
 function createGooglePerson(person) {
   return {
     names: person.name ? [person.name] : [],
-    organizations: person.org ? [person.org] : [],
+    organizations: person.org ? [{ name: person.org }] : [],
     phoneNumbers: person.phoneNumbers || []
   };
 }

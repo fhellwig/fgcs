@@ -55,11 +55,13 @@ export async function deleteAllGoogleContacts(client, total = 0) {
 }
 
 export async function createGoogleContacts(client, people) {
+  const contacts = people.map((p) => ({ contactPerson: p }));
+  console.log(JSON.stringify(contacts, null, 4));
   const options = {
     method: 'POST',
     url: 'https://people.googleapis.com/v1/people:batchCreateContacts',
-    readMask: { personFields: ['names', 'organizations', 'phoneNumbers'] },
-    contacts: people
+    data: { contacts },
+    readMask: 'names'
   };
   return await client.request(options);
 }

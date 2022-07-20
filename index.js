@@ -12,8 +12,19 @@ try {
 async function main() {
   const people = await getFastmailContacts();
   const client = await getAuthenticatedClient();
-  const deleted = await deleteAllGoogleContacts(client);
-  // NEED TO CHUNK INTO GROUPS OF 100
-  const created = await createGoogleContacts(client, convertToGoogleContacts(people));
-  console.log(`Created ${created.length} contacts in Google`);
+  await deleteAllGoogleContacts(client);
+  const converted = convertToGoogleContacts(people);
+  const chunks = chunkArray(converted, 10);
+  for (const chunk of chunks) {
+    await createGoogleContacts(client, chunk);
+  }
+}
+
+function chunkArray(a, size) {
+  console.log('orig size', a.length);
+  var arrays = [];
+  for (let i = 0; i < a.length; i += size) {
+    arrays.push(a.slice(i, i + size));
+  }
+  return arrays;
 }
